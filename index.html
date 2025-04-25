@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putování plzeňskou diecézí</title>
+    <style>
+        body {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3f/Old_paper_texture_3.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Georgia', serif;
+            color: #2c2c2c;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+        img {
+            max-width: 200px;
+            margin-top: 20px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #2c2c2c;
+            margin-top: 10px;
+        }
+        #verse {
+            font-size: 1.4em;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #336699;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        a {
+            color: #336699;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Logo_Biskupstv%C3%AD_plze%C5%88sk%C3%A9.svg/800px-Logo_Biskupstv%C3%AD_plze%C5%88sk%C3%A9.svg.png" alt="Logo Biskupství">
+    <h1>Putování plzeňskou diecézí</h1>
+    <p><em>Tento projekt vznikl v rámci jubilejního roku 2025 – Poutníci naděje.</em></p>
+
+    <div id="verse">Načítám biblické slovo...</div>
+    <button onclick="generateVerse()">Získat jiné slovo</button>
+
+    <footer>
+        <p><a href="https://www.bip.cz" target="_blank">www.bip.cz</a></p>
+        <p><strong>Informace o jubilejním roce budou doplněny.</strong></p>
+    </footer>
+
+    <script>
+        const verses = [
+            {"text": "Neboj se, vždyť jsem s tebou, nehleď ustrašeně, já jsem tvůj Bůh.", "reference": "Izajáš 41,10"},
+            {"text": "Ať vás provází milost, milosrdenství a pokoj od Boha Otce.", "reference": "Juda 1,2"},
+            {"text": "Bůh je láska, a kdo zůstává v lásce, zůstává v Bohu a Bůh v něm.", "reference": "1 Jan 4,16"},
+            {"text": "Radujte se v naději, buďte trpěliví v soužení, vytrvalí v modlitbě.", "reference": "Římanům 12,12"},
+            {"text": "Těm, kdo milují Boha, všechno napomáhá k dobrému.", "reference": "Římanům 8,28"}
+        ];
+
+        function generateVerse() {
+            const random = Math.floor(Math.random() * verses.length);
+            const verse = verses[random];
+            document.getElementById('verse').innerHTML = `"${verse.text}"<br><br><em>${verse.reference}</em>`;
+        }
+
+        window.onload = generateVerse;
+    </script>
+</body>
+</html>
